@@ -3,21 +3,21 @@ Resumo desorganizado de como resolver as tretas com o nosso querido MPU6050.
 
 ## Paraiso da desorganizacao
 
-[](https://github.com/jrowberg/i2cdevlib/blob/master/Arduino/MPU6050/examples/MPU6050_DMP6/MPU6050_DMP6.ino)
+[MPU6050_DMP6.ino](https://github.com/jrowberg/i2cdevlib/blob/master/Arduino/MPU6050/examples/MPU6050_DMP6/MPU6050_DMP6.ino)
 Descomenta ql parte tu quer
 
 
-[](https://github.com/italogsfernandes/rastreamento-inercial/blob/master/Codigos%20para%20consulta%20e%20referecias/Firmware/Arduino/MPU6050_calibration/MPU6050_calibration.ino)
+[MPU6050_calibration.ino](https://github.com/italogsfernandes/rastreamento-inercial/blob/master/Codigos%20para%20consulta%20e%20referecias/Firmware/Arduino/MPU6050_calibration/MPU6050_calibration.ino)
 
-[](https://github.com/italogsfernandes/rastreamento-inercial/blob/master/Codigos%20para%20consulta%20e%20referecias/Firmware/Andrei-pu6050_complete/mpu6050_complete/mpu6050_complete.ino)
+[mpu6050_complete.ino](https://github.com/italogsfernandes/rastreamento-inercial/blob/master/Codigos%20para%20consulta%20e%20referecias/Firmware/Andrei-pu6050_complete/mpu6050_complete/mpu6050_complete.ino)
 
-[](https://github.com/BIOLAB-UFU-BRAZIL/cobec-competicao/blob/master/SistemaDeAquisicao/Arduino_EMG_INERTIAL_Com_Fio/Arduino_EMG_INERTIAL_Com_Fio.ino)
+[Arduino_EMG_INERTIAL_Com_Fio.ino](https://github.com/BIOLAB-UFU-BRAZIL/cobec-competicao/blob/master/SistemaDeAquisicao/Arduino_EMG_INERTIAL_Com_Fio/Arduino_EMG_INERTIAL_Com_Fio.ino)
 
 Isso resolve
 Se precisar de precisão e tal
 Tu usa esse outro:
 
-Codigos usando algoritmo de madgwick: [](https://github.com/italogsfernandes/rastreamento-inercial/tree/master/Firmware/GY88_AND_DEMUX)
+Codigos usando algoritmo de madgwick: [GY88_AND_DEMUX](https://github.com/italogsfernandes/rastreamento-inercial/tree/master/Firmware/GY88_AND_DEMUX)
 Esse é o brabo
 
 nao tem isso no datasheet nao kk
@@ -31,16 +31,16 @@ adiciona a biblioteca de i2c
 inicia o i2c
 `Wire.begin();`
 "Liga" o sensor, tipo, tu configura ele pra ficar lendo:
-'''
+'''C
 Wire.beginTransmission(0x68); Wire.write(0x6B); Wire.write(0); Wire.endTransmission(true);
 '''
 No loop, vc le os dados do sensor: 
 Requisita a leitura no registro 0x3B (inicio do vetor de dados na memoria do mpu6050):
-'''
+'''C
 Wire.beginTransmission(0x68); Wire.write(0x3B); Wire.endTransmission(false); Wire.requestFrom(0x68,14,true); 
 '''
 Entao le:
-'''
+'''C
 Aceleracao_X = Wire.read() << 8 | Wire.read(); 
 Aceleracao_Y = Wire.read() << 8 | Wire.read(); 
 Aceleracao_Z = Wire.read() << 8 | Wire.read(); 
@@ -105,17 +105,17 @@ Dia 25/04/2019 eu mandei uns codigos pro eber que leem usando os filtros interno
 no whatsapp dele deve ter
 acabei de achar isso na minha pasta de coisas antigas 
 
-* [](https://www.google.com.br/search?q=eagle&ie=utf-8&oe=utf-8&client=firefox-b-ab&gfe_rd=cr&ei=hX16V_3YEKrL8ge9roSIDA#q=eagle+tutorial)
-* [](https://learn.sparkfun.com/tutorials/using-eagle-schematic)
-* [](http://howtomechatronics.com/how-it-works/electrical-engineering/mems-accelerometer-gyrocope-magnetometer-arduino/)
-* [](http://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
+* [google eagle+tutorial](https://www.google.com.br/search?q=eagle&ie=utf-8&oe=utf-8&client=firefox-b-ab&gfe_rd=cr&ei=hX16V_3YEKrL8ge9roSIDA#q=eagle+tutorial)
+* [using-eagle-schematic](https://learn.sparkfun.com/tutorials/using-eagle-schematic)
+* [mems-accelerometer-gyrocope-magnetometer-arduino](http://howtomechatronics.com/how-it-works/electrical-engineering/mems-accelerometer-gyrocope-magnetometer-arduino/)
+* [how-i2c-communication-works-and-how-to-use-it-with-arduino](http://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
 * MPU6050
 * HMC5883L
 * Inertial Measurement Unit, or IMU
-* [](http://www.starlino.com/imu_guide.html)
-* [](http://howtomechatronics.com/how-it-works/electrical-engineering/mems-accelerometer-gyrocope-magnetometer-arduino/)
-* [](http://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
-* [](http://www.vrs.org.uk/virtual-reality-gear/motion-tracking/sensors.html)
+* [starlino imu_guide](http://www.starlino.com/imu_guide.html)
+* [mems-accelerometer-gyrocope-magnetometer-arduino](http://howtomechatronics.com/how-it-works/electrical-engineering/mems-accelerometer-gyrocope-magnetometer-arduino/)
+* [how-i2c-communication-works-and-how-to-use-it-with-arduino](http://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
+* [virtual-reality-gear/motion-tracking/sensors.html](http://www.vrs.org.uk/virtual-reality-gear/motion-tracking/sensors.html)
 * FIR or IIR filters 
 * undestanding the kalman filters by a simple and intuitive derivation
 * kleeman-kalman-basics
