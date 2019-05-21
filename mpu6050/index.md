@@ -123,12 +123,14 @@ acabei de achar isso na minha pasta de coisas antigas
 
 ## Licence and Author
 
-'''
+'''bash
+
 -----------------------------------------------------------------------------
 "THE BEER-WARE LICENSE" (Revision 42):
 italogsfernandes wrote this file.  As long as you retain this notice you
 can do whatever you want with this stuff. If we meet some day, and you think
 this stuff is worth it, you can buy me a beer in return.  Italo G S Fernandes
 -----------------------------------------------------------------------------
+
 '''
 * Ítalo Fernandes - [italogsfernandes.github.io](https://italogsfernandes.github.io)
